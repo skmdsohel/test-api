@@ -12,7 +12,7 @@ app.post('/jira-webhook', (req, res) => {
   console.log(req.body)
   // console.log(`Issue created: ${issue.key} - ${issue.fields.summary}`);
   // Add your logic to handle the issue created event
-  res.status(200).send('Webhook received');
+  res.status(200).json(req.body);
 });
 
 // Load SSL certificate and key
