@@ -8,10 +8,10 @@ app.use(bodyParser.json());
 
 // Define your route
 app.post('/jira-webhook', (req, res) => {
-  const issueData = req.body;
-  console.log('Issue created:', issueData);
-
-  // Process the issue data here
+  const issue = req.body.issue;
+  console.log(req.body)
+  console.log(`Issue created: ${issue.key} - ${issue.fields.summary}`);
+  // Add your logic to handle the issue created event
   res.status(200).send('Webhook received');
 });
 
