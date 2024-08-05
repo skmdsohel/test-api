@@ -7,6 +7,13 @@ const app = express();
 app.use(bodyParser.json());
 
 // Define your route
+app.get('/healthcheck', (req, res) => {
+  const issue = req.body;
+  console.log("/healthcheck route")
+  // console.log(`Issue created: ${issue.key} - ${issue.fields.summary}`);
+  // Add your logic to handle the issue created event
+  res.status(200).send("ok");
+});
 app.post('/jira-webhook', (req, res) => {
   const issue = req.body;
   console.log(req.body)
